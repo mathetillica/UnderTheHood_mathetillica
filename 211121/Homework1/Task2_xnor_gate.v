@@ -1,10 +1,10 @@
 `timescale 1ns/1ns 
 
-module orgate(
+module xnorgate(
     input A,B,
     output C
 );
-    assign C = A|B;
+    assign C = (A&B)|((~A)&(~B));
 endmodule
 
 
@@ -12,7 +12,7 @@ module tb;
 
     reg A, B;
     wire C;
-    orgate ans(A, B, C);
+    xnorgate ans(A, B, C);
 
     initial begin
         A = 1;

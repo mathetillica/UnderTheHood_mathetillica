@@ -1,8 +1,11 @@
 module one_bit_adder (
     input b1, b2, b3, c_in, output r, c_out 
 );
-    assign r = (b1|b2|b3|~c_in)&(b1|b2|~b3|~c_in)&(b1|~b2|b3|c_in)&(b1|~b2|~b3|c_in)&(~b1|b2|b3|~c_in)&(~b1|b2|~b3|~c_in);
-    assign c_out = (b1|b2|~b3|c_in)&(b1|~b2|~b3|c_in)&(~b1|b2|b3|c_in)&(~b1|~b2|b3|c_in)&(b1|b2|~b3|~c_in)&(b1|~b2|~b3|~c_in);
+    assign r = (~b1|b2|~c_in)&(b1|~b2|~b3|c_in)&(b1|b2|~c_in)&(b1|~b2|b3|c_in);
+    //assign r = (b1|b2|b3|~c_in)&(b1|b2|~b3|~c_in)&(b1|~b2|b3|c_in)&(b1|~b2|~b3|c_in)&(~b1|b2|b3|~c_in)&(~b1|b2|~b3|~c_in);
+    assign c_out = (~b1|~b2|b3)&(b1|b2|~b3|~c_in)&(~b1|b2|b3)&(b1|b2|~b3|c_in);
+    //assign c_out = (b1|b2|~b3|c_in)&(b1|~b2|~b3|c_in)&(~b1|b2|b3|c_in)&(~b1|~b2|b3|c_in)&(b1|b2|~b3|~c_in)&(b1|~b2|~b3|~c_in);
+    
     
 endmodule
 
